@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+
+		<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	
+	
+	function loadPage(){
+		$.ajax({
+		    url: "http://rohitmisra.de:8080/test/getJS/get",
+		    cache: false,
+			type: 'POST',
+		    dataType: "script",
+			data: {
+				username: document.getElementById('username').value,
+				password: document.getElementById('pwd').value
+			},
+		    success: function() {
+		        $("#result").html(sessionInfo().reason);
+		    }
+		});
+		
+	}
+	
+</script>
+
+
+</head>
+
+<body>
+Username: <input type="text" id="username"><br>
+Password: <input type="password" id="pwd"><br>
+<button onclick="loadPage()">Click me</button>
+<div id = "result">
+</div>
+</body>
+
+
+
+		</html>
